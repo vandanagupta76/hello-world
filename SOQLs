@@ -1,0 +1,320 @@
+GBRL0C803X15
+Voucher
+=========
+BAU Prod
+
+MS Prod
+
+Account
+=========
+BAU Prod -1433 - ***Need Xformation to remove multiple contacts accounts
+
+
+Select 
+AccountId,
+Id,
+Name,
+Account.Phone,
+Account.CHI_Account_Id__c,
+Account.CHI_Job_Reference_Number__c,
+Account.VIP__c,
+Billing_Address_Line_1__c,
+Billing_Address_Line_2__c,
+Billing_Town__c,
+Billing_County__c,
+Billing_Country__c,
+Billing_Postcode__c,
+Account.Address_Line_1__c,
+Account.Address_Line_2__c,
+Account.Town__c,
+Account.County__c,
+Account.Country__c,
+Account.Postcode__c,
+CreatedById,
+CreatedDate,
+LastModifiedById,
+LastModifiedDate,
+OwnerId,
+Account.Site__c,
+Account.CreatedById,
+Account.CreatedDate,
+Account.LastModifiedById,
+Account.LastModifiedDate,
+Account.OwnerId
+from Contact
+where (Account.LastModifiedDate = LAST_n_DAYS:12 OR LastModifiedDate = LAST_n_DAYS:12 )
+order by AccountId,CreatedDate DESC
+
+MS Prod - 1059
+Select
+Id,
+Name,
+VIP__c,
+CreatedDate,
+LastModifiedDate,
+OwnerId,
+LastModifiedById,
+CreatedById,
+Phone,
+TotalRecurringAmountCollected__c,
+TotalRecurringAmountPending__c
+From Account
+where LastModifiedDate = LAST_n_DAYS:15
+
+Contact - Address fields
+=========
+BAU Prod -1503 (same fields)
+
+Select
+Id,
+AccountId,
+Phone,
+CHI_Contact_Num__c,
+CHI_Job_Reference_Number__c,
+DoNotCall,
+Do_Not_Call_Mobile__c,
+HasOptedOutOfEmail,
+Mail_Opt_Out__c,
+DoNotText__c,
+Email,
+EmailBouncedDate,
+EmailBouncedReason,
+FirstName,
+LastName,
+LeadSource,
+MobilePhone,
+Salutation,
+Do_Not_Classify__c,
+Contact_Type__c,
+CreatedById,
+CreatedDate,
+LastModifiedById,
+LastModifiedDate,
+OwnerId
+from contact
+where LastModifiedDate = LAST_n_DAYS:6 
+
+
+MS Prod - 1755
+
+Select
+ID,
+Phone,
+DoNotCall,
+DoNotCallMobile__c,
+HasOptedOutOfEmail,
+MailOptOut__c,
+DoNotText__c,
+Email,
+EmailBouncedDate,
+EmailBouncedReason,
+FirstName,
+LastName,
+LeadSource,
+MobilePhone,
+Salutation,
+CreatedDate,
+LastModifiedDate,
+OwnerId,
+LastModifiedById,
+CreatedById,
+AccountId,
+Type__c
+from Contact
+Where LastModifiedDate = LAST_n_DAYS:15
+
+
+Opportunity
+===========
+BAU Prod -2807
+
+Select
+Id,
+AccountId,
+Amount,
+CHI_Job_Rec_ID__c,
+CHI_Job_Reference_Number__c,
+CampaignId,
+Channel__c,
+CloseDate,
+IsClosed,
+Customer_Awareness__c,
+External_Request_ID__c,
+HU_Agent__c,
+In_Day_Sale__c,
+Lead_Originator__c,
+LeadSource,
+Name,
+Original_WMIS_Number__c,
+Quote_Tool_Quote_ID__c,
+Quote_Status__c,
+Cancellation_Reason__c,
+Recipient_External_Reference__c,
+UTM_Long_Code__c,
+UTM_Short_Code__c,
+IsWon,
+CreatedById,
+CreatedDate,
+LastModifiedById,
+LastModifiedDate,
+OwnerId,
+StageName,
+Completion_Date__c,
+PriceBook2Id,
+Notes__c,
+Installation_Engineer__c,
+Job_Code__c,
+Last_Visit_Date__c,
+Last_Visit_End_Time__c,
+Last_Visit_Start_Time__c,
+Number_of_Visits__c,
+RFA_Number__c,
+Job_Reference_Number__c,
+RFA_Status__c,
+Visit_Status__c,
+Agent_Name__c,
+Agent_Notes__c,
+Cancelled_By__c,
+Cancelled_In_WMIS__c,
+D_Plus_1_Check_Complete__c,
+Onsite_Duration__c,
+Planned_Appt_Date__c,
+Planned_Appt_Failure_Reason__c,
+Planned_Appt_Time__c,
+Reallocation_Reason__c,
+Reschedule_Reason__c,
+Scheduled_Date__c,
+Scheduled_Time__c,
+Team__c,
+Work_Request_Status__c,
+Cancellation_Phase__c,
+Contact__c,
+Contact__r.UCRN__c,
+Lead_Ref__c,
+GC_Number__c
+from Opportunity
+where LastModifiedDate = LAST_n_DAYS:6 
+
+MS Prod -213098
+Select
+Id,
+Amount,
+Channel__c,
+CloseDate,
+LeadSource,
+Name,
+StageName,
+CreatedDate,
+LastModifiedDate,
+AccountId,
+ChiReferenceNumber__c,
+OwnerId,
+LastModifiedById,
+CreatedById,
+UtmShortCode__c,
+UtmLongCode__c,
+RecipientExternalReference__c,
+OriginalWmisNumber__c,
+LeadOriginator__c,
+HUAgent__c,
+ExternalRequestID__c,
+CampaignId,
+CustomerAwareness__c,
+InDaySale__c,
+QuoteReference__c,
+QuoteStatus__c,
+Reason__c
+From Opportunity
+where  LastModifiedDate = LAST_n_DAYS:15
+
+Opportunity Line item ***
+=====================
+
+Opportunity Contact Role 
+=======================
+BAU PROD - 402
+select 
+Id,
+ContactId, 
+OpportunityId, 
+Role , 
+CreatedDate,
+LastModifiedDate,
+IsPrimary 
+from OpportunityContactRole 
+where  LastModifiedDate = LAST_n_DAYS:9 
+
+
+MS PROD -672
+select 
+Id,
+ContactId, 
+OpportunityId, 
+Role , 
+CreatedDate,
+LastModifiedDate,
+IsPrimary 
+from OpportunityContactRole cv 
+where  LastModifiedDate = LAST_n_DAYS:10 
+
+Customer Pack
+==============
+BAU Prod Not required
+
+MS Prod - 1708
+Select
+Id,
+CancellationDate__c,
+FulfilmentDate__c,
+ReasonForCancellation__c,
+Status__c,
+TotalUnitPrice__c,
+CreatedDate,
+LastModifiedDate,
+LastModifiedById,
+CreatedById,
+Account__c,
+VoucherCode__c,
+Lead__c,
+Opportunity__c,
+Pack__r.Name
+from 
+CustomerPack__c
+where  LastModifiedDate = LAST_n_DAYS:10
+
+Order
+==============
+BAU Prod Not required
+
+MS Prod - 1672 (data loader and jitterbit can not be used, use SOQL Explorer)
+Select Id,
+Status,
+AccountId,
+CancellationReason__c,
+EndDate,
+EffectiveDate,
+OpportunityId,
+Pricebook2Id,
+CreatedDate,
+LastModifiedDate
+From Order
+where  LastModifiedDate = LAST_n_DAYS:10 
+
+Order Line Item
+================
+BAU Prod - Not required
+
+MS Prod - 3680
+Select Id,
+Description,
+Quantity,
+ServiceDate,
+OrderId,
+CustomerPack__c,
+UnitPrice,
+PricebookEntryId,
+CreatedDate,
+LastModifiedDate
+From OrderItem
+where  LastModifiedDate = LAST_n_DAYS:10 
+
